@@ -1,4 +1,4 @@
-Top 10 Artists by Followers
+#Top 10 Artists by Followers
 
 SELECT
     name AS artist_name,
