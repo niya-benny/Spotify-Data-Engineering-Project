@@ -1,0 +1,8 @@
+#Average Track Duration by Genre
+
+SELECT
+    genre,
+    ROUND(AVG(CAST(duration_sec AS DOUBLE)),2) AS avg_duration_sec
+FROM datawarehouse
+GROUP BY genre
+ORDER BY avg_duration_sec DESC;
