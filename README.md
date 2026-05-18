@@ -1,3 +1,4 @@
+
 # Spotify-Data-Engineering-Project in AWS
 
 PIPELINE
@@ -48,4 +49,34 @@ The workflow performs the following operations:
 * Stores the transformed output into the S3 `datawarehouse` layer in Parquet format for efficient querying and analytics.
 
 This ETL pipeline automated the conversion of raw CSV files into optimized analytical data suitable for Athena querying and QuickSight visualization.
+
+## AWS Glue Crawler Configuration
+
+Created and configured an AWS Glue Crawler named `ndl_` to automatically scan the transformed datasets stored in the S3 `datawarehouse/` layer. The crawler was connected to the `spotify` Glue database and used the `AWSGlueServiceRole` IAM role to detect schema metadata and generate catalog tables for downstream analytics.
+
+---
+
+## AWS IAM Role for Glue Services
+
+Configured the IAM role `AWSGlueServiceRole` with the required permissions, including `AmazonS3FullAccess` and Glue service policies. This role enables AWS Glue to securely access S3 data, execute ETL jobs, and manage metadata operations within the data pipeline.
+
+---
+
+## AWS Glue Data Catalog Table Creation
+
+Successfully generated a Glue Data Catalog table named `datawarehouse` inside the `spotify` database using the Glue crawler. The table stores metadata for the transformed Parquet datasets, enabling seamless integration with AWS Athena and other analytics services.
+
+---
+
+## Schema Detection Using AWS Glue
+
+AWS Glue automatically inferred and created the schema for the transformed Spotify dataset stored in Parquet format. The schema includes columns such as `track_id`, `album_name`, `artist_id`, `track_popularity`, `genre`, and other analytical attributes required for querying and reporting.
+
+---
+
+## Automated Metadata Management in AWS Glue
+
+Implemented automated metadata management using AWS Glue Crawlers and the Glue Data Catalog. This setup ensures that schema definitions and dataset structures remain updated dynamically whenever new transformed data is added to the S3 data warehouse layer.
+
+
 
