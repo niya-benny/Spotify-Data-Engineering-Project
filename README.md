@@ -78,5 +78,30 @@ AWS Glue automatically inferred and created the schema for the transformed Spoti
 
 Implemented automated metadata management using AWS Glue Crawlers and the Glue Data Catalog. This setup ensures that schema definitions and dataset structures remain updated dynamically whenever new transformed data is added to the S3 data warehouse layer.
 
+## Amazon Athena Query Result Configuration
+
+Configured Amazon Athena query result settings by connecting an S3 output bucket named `athena-output-spotifyprojecttt`. This setup enables Athena to store query execution results securely in Amazon S3 for further analysis and reporting.
+
+---
+
+## Amazon Athena Query Execution
+
+Executed SQL queries in Amazon Athena on the `datawarehouse` table within the `spotify` database. Athena was connected to the AWS Glue Data Catalog, allowing serverless querying of transformed Spotify datasets stored in Amazon S3.
+
+---
+
+## Querying Transformed Spotify Data Using Athena
+
+Performed analytical queries on the transformed Spotify dataset using Amazon Athena. The query retrieved columns such as `track_id` and `album_name` from the `datawarehouse` table, validating successful ETL processing and data warehouse integration.
+
+---
+
+## Amazon Athena Query Results Validation
+
+Successfully validated the transformed Parquet datasets by running SQL queries in Amazon Athena. The query results displayed Spotify track and album details directly from the S3 data warehouse layer with optimized query performance.
+
+---
+References:
+https://youtu.be/yIc5a7C8aHs?si=_cSWA-t9GCkmkVCq
 
 
