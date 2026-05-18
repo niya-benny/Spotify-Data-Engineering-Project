@@ -28,3 +28,24 @@ Uploaded raw Spotify datasets (`albums.csv`, `artists.csv`, and `track.csv`) int
 ## Data Warehouse Layer in S3
 
 After ETL processing using AWS Glue, the transformed datasets were stored in the `datawarehouse/` folder in optimized Parquet format with Snappy compression. This layer serves as the analytical storage zone for efficient querying and downstream analytics using Athena and QuickSight.
+
+## AWS Glue ETL Job Creation
+
+Created an AWS Glue Visual ETL job named `SpotifyProject` to automate the data transformation pipeline. The Glue job was configured using AWS Glue Studio with Glue Version 4.0 to process raw Spotify datasets stored in Amazon S3.
+
+---
+
+## ETL Workflow Design in AWS Glue Studio
+
+Designed a visual ETL workflow in AWS Glue Studio to integrate and transform multiple Spotify datasets.
+
+The workflow performs the following operations:
+
+* Reads raw `albums`, `artists`, and `track` datasets directly from the S3 staging layer.
+* Joins the `albums` and `artists` datasets using transformation nodes.
+* Further joins the combined dataset with the `track` dataset to create a consolidated analytical dataset.
+* Removes unnecessary columns using the `Drop Fields` transformation to optimize the final schema.
+* Stores the transformed output into the S3 `datawarehouse` layer in Parquet format for efficient querying and analytics.
+
+This ETL pipeline automated the conversion of raw CSV files into optimized analytical data suitable for Athena querying and QuickSight visualization.
+
