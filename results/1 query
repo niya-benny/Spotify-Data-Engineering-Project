@@ -1,0 +1,9 @@
+Top 10 Artists by Followers
+
+SELECT
+    name AS artist_name,
+    MAX(CAST(followers AS BIGINT)) AS followers_count
+FROM datawarehouse
+GROUP BY name
+ORDER BY followers_count DESC
+LIMIT 10;
